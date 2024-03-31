@@ -1,0 +1,19 @@
+{
+  "image":"mcr.microsoft.com/devcontainers/base:debian-11",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": { "version": "17-open" },
+    "ghcr.io/devcontainers-contrib/features/clojure-asdf:2": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/jungaretti/features/vim:1": {},
+    "ghcr.io/rio/features/chezmoi:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "postCreateCommand": {
+    "zsh": "sudo chsh -s $(which zsh) ${USER}",
+    "clojure-lsp": "sudo bash < <(curl -s https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install)",
+    "locale1": "sudo sed -i 's/^# en_AU.UTF-8/en_AU.UTF-8/' /etc/locale.gen",
+    "locale2": "sudo locale-gen",
+    "shadow-cljs": "npm i --global shadow-cljs"
+  },
+  "forwardPorts": [8080, 9630]
+}

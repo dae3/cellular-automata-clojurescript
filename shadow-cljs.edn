@@ -1,0 +1,17 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src"]
+
+ :dependencies
+ [[cider/cider-nrepl  "0.45.0"]]
+
+ :nrepl {:port 3333 :init-ns user.repl}
+
+ :dev-http {8080 "public"}
+
+ :builds
+ {:frontend
+  {:target :browser
+   :modules
+   {:main
+    {:entries [ca.render.core ca.render.events]}}}}}
